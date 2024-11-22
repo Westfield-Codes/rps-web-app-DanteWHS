@@ -4,12 +4,14 @@ function getRounds() {
 }
 
 function setRound(set) {
+    let rounds = 1
     if (set % 2 == 0 || isNaN(set)==true) {
        alert("Must be an odd number");
     } else{
         alert("Best out of "+ set);
-    localStorage.setItem("set", set);}
-    window.location.replace("chooser.html");
+    localStorage.setItem("set", set)
+    
+    window.location.replace("chooser.html");}
  }
 
  function cTurn(u){
@@ -19,7 +21,7 @@ function setRound(set) {
     findWinner(u, c)
  }
  
- function findWinner(u, c){
+ function findWinner(u, c, rounds){
     let winArray = [
        ["r", "p", "Computer"], 
        ["p", "s", "Computer"], 
@@ -32,4 +34,5 @@ function setRound(set) {
         if (winArray[i][0]+winArray[i][1]==uChoice+cChoice) break;
     }
     alert(uChoice + " Vs. " + cChoice + ". " + winArray[i][2] + " won!");
+    rounds+=1
  }
