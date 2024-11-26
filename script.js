@@ -46,7 +46,7 @@ function showRound(){
  * @param = u
  * @return = u,c
  */
-function cpuTurn(u){
+function cTurn(u){
     let moves = ["r","p","s"];
     let choice = Math.floor(Math.random()*3);
     let c = moves[choice];
@@ -65,7 +65,7 @@ function cpuTurn(u){
  */
 function findWinner(u,c){
         let winner = " ";
-        let winArray=[["r","p","I"],["r","s","you"],["p","s","I"],["p","r","you"],["s","r","I"],["s","p","you"]];
+        let winArray=[["r","p","Computer"],["r","s","you"],["p","s","Computer"],["p","r","you"],["s","r","Computer"],["s","p","you"]];
         for (let i = 0; i< winArray.length; i++){
             if (winArray[i][0] == u && winArray[i][1]==c){
                 winner= winArray[i][2];
