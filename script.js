@@ -1,23 +1,22 @@
 var round = 1;
-var set = 0;
-localStorage.setItem("rounds", set);
+var rounds = localStorage.setItem("rounds", rounds);
 function getRounds() {
-   set = document.getElementById("rounds").value;
-    setRound(set);
+   rounds = document.getElementById("rounds").value;
+    setRound(rounds);
 }
 
-function setRound(set) {
-    if (set % 2 == 0 || isNaN(set)==true) {
+function setRound(rounds) {
+    if (rounds % 2 == 0 || isNaN(rounds)==true) {
        alert("Must be an odd number");
     } else{
-    localStorage.setItem("rounds", set)
+    localStorage.setItem("rounds", rounds)
     window.location.replace("chooser.html");}
  }
 
  function showRound(){
    let set = localStorage.getItem("rounds");
    let statsBox = document.getElementById("statsBox");
-   let message = "Round " + round + " out of " + set;
+   let message = "Round " + round + " out of " + rounds;
    statsBox.innerHTML = message;
  }
 
