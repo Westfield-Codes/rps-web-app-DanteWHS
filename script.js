@@ -1,3 +1,4 @@
+var score = [0, 0];
 /* Function getRounds
  * pulls rounds from the input box on the home page and sends to setRounds
  * @param = none
@@ -35,8 +36,17 @@ function setRounds(rounds){
 function showRound(){
     let round = localStorage.getItem("round");
     let rounds = localStorage.getItem("rounds");
+    if (round>rounds) window.location.href = "winner.html"
     let statsBox = document.getElementById("statsBox");
     let message = "Round " + round + " of " + rounds;
+    statsBox.innerHTML = message;
+}
+
+function showWinner(){
+   let round = localStorage.getItem("round");
+    let rounds = localStorage.getItem("rounds");
+    let statsBox = document.getElementById("statsBox");
+    let message = 0
     statsBox.innerHTML = message;
 }
 
@@ -75,6 +85,8 @@ function findWinner(u,c){
         alert("You choose " + u + " and I choose " + c + " " + winner + " win!");
         let round = localStorage.getItem("round");
         round++;
+        if ([i][2])
         localStorage.setItem("round",round);
         showRound();
+        
     }
