@@ -18,7 +18,8 @@ function getRounds(){
  */
 function setRounds(rounds){
     if (rounds % 2 == 0||isNaN==true) {
-        alert("must be an odd number");
+        //alert("must be an odd number");
+        document.getElementById(rounds.value)= "must be odd";
     }
     else {
         localStorage.setItem("rounds",rounds);
@@ -86,9 +87,9 @@ function findWinner(u,c){
         }
         alert("You choose " + u + " and I choose " + c + " " + winner + " win!");
         let round = localStorage.getItem("round");
-        round++;
         if ([i][2])
+        round++;
         localStorage.setItem("round",round);
-        showRound();
+        showWinner();
         
     }
