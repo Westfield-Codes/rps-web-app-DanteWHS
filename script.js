@@ -19,7 +19,7 @@ function getRounds(){
 function setRounds(rounds){
     if (rounds % 2 == 0||isNaN==true) {
         //alert("must be an odd number");
-        document.getElementById(rounds.value)= "must be odd";
+        document.getElementById("rounds").value = "must be an odd number";
     }
     else {
         localStorage.setItem("rounds",rounds);
@@ -60,11 +60,13 @@ function showWinner(){
  * @return = u,c
  */
 function cTurn(u){
+    let results = document.getElementById("results");
     let moves = ["r","p","s"];
     let choice = Math.floor(Math.random()*3);
     let c = moves[choice];
     if (u == c){
-      alert("We both picked " + u);
+      message = ("We both picked " + u);
+      results.innerHTML = message
   }
   else findWinner(u,c);
 }
@@ -77,6 +79,9 @@ function cTurn(u){
  * @return = none
  */
 function findWinner(u,c){
+    let round = localStorage.getItem("round");
+    round++;
+    let results = document.getElementById("results");
         let winner = " ";
         let winArray=[["r","p","Computer"],["r","s","you"],["p","s","Computer"],["p","r","you"],["s","r","Computer"],["s","p","you"]];
         for (let i = 0; i< winArray.length; i++){
@@ -85,11 +90,12 @@ function findWinner(u,c){
 
             }
         }
-        alert("You choose " + u + " and I choose " + c + " " + winner + " win!");
-        let round = localStorage.getItem("round");
-        if ([i][2])
-        round++;
+        let message = ("You choose " + u + " and I choose " + c + "<br>"+winner + " win!");
+        results.innerHTML = message
         localStorage.setItem("round",round);
-        showWinner();
-        
+        showRound();   
+    }
+
+    function again(){
+        window.location.href = "index.html";
     }
