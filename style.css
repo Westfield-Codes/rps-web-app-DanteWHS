@@ -1,3 +1,10 @@
 body {
   background-color:rgb(70, 133, 250);
 }
+div.scoreBox {
+  position:absolute; 
+  right:10px; 
+  top: 10px; 
+  border:1px solid black; 
+  background:white;padding:10px;
+}

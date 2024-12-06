@@ -1,4 +1,3 @@
-var score = [0, 0];
 /* Function getRounds
  * pulls rounds from the input box on the home page and sends to setRounds
  * @param = none
@@ -15,13 +14,15 @@ function getRounds(){
  * @param = founds
  * @localStorage => round, rounds
  * @return = none
- */
+ */ 
 function setRounds(rounds){
     if (rounds % 2 == 0||isNaN==true) {
         //alert("must be an odd number");
         document.getElementById("rounds").value = "must be an odd number";
     }
     else {
+        let score = [0, 0];
+        let jsonScore = JSON.stringify(score);
         localStorage.setItem("rounds",rounds);
         localStorage.setItem("round",1);
         window.location.href = "chooser.html";
@@ -35,14 +36,18 @@ function setRounds(rounds){
  * @return = none
  */
 function showRound(){
+    let score = JSON.parse(jsonScore)
     let round = localStorage.getItem("round");
     let rounds = localStorage.getItem("rounds");
     if (round > rounds) {
         window.location.href = "gameover.html";
     }
     let statsBox = document.getElementById("statsBox");
+    let scoreBox = document.getElementById("scoreBox");
     let message = "Round " + round + " of " + rounds;
+    let message2 = "Score: " + score.toString();
     statsBox.innerHTML = message;
+    scoreBox.innerHTML = message2;
 }
 
 function showWinner(){
@@ -87,12 +92,16 @@ function findWinner(u,c){
         for (let i = 0; i< winArray.length; i++){
             if (winArray[i][0] == u && winArray[i][1]==c){
                 winner= winArray[i][2];
-
             }
         }
         let message = ("You choose " + u + " and I choose " + c + "<br>"+winner + " win!");
         results.innerHTML = message
+        score = JSON.parse(jsonScore);
+        let players = [you, Computer]
+        score[winner.indexOf(players)]++;
+        let jsonScore = JSON.stringify(score);
         localStorage.setItem("round",round);
+        localStorage.setItem("winner",winner);
         showRound();   
     }
 
