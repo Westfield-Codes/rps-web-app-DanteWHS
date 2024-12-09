@@ -22,9 +22,10 @@ function setRounds(rounds){
     }
     else {
         let score = [0, 0];
-        let jsonScore = JSON.stringify(score);
+        jsonScore = JSON.stringify(score);
+        score = localStorage.setItem("score",jsonScore);
         localStorage.setItem("rounds",rounds);
-        localStorage.setItem("round",1);
+        localStorage.setItem("round", 1);
         window.location.href = "chooser.html";
     }
 }
@@ -36,7 +37,8 @@ function setRounds(rounds){
  * @return = none
  */
 function showRound(){
-    let score = JSON.parse(jsonScore)
+    let jsonScore = localStorage.getItem("score");
+    score = JSON.parse(jsonScore);
     let round = localStorage.getItem("round");
     let rounds = localStorage.getItem("rounds");
     if (round > rounds) {
@@ -44,17 +46,17 @@ function showRound(){
     }
     let statsBox = document.getElementById("statsBox");
     let scoreBox = document.getElementById("scoreBox");
-    let message = "Round " + round + " of " + rounds;
-    let message2 = "Score: " + score.toString();
-    statsBox.innerHTML = message;
-    scoreBox.innerHTML = message2;
+    let statsMessage = "Round " + round + " of " + rounds;
+    let scoreMessage = score;
+    statsBox.innerHTML = statsMessage;
+    scoreBox.innerHTML = scoreMessage;
 }
 
 function showWinner(){
    let round = localStorage.getItem("round");
     let rounds = localStorage.getItem("rounds");
     let statsBox = document.getElementById("statsBox");
-    let message = 0
+    let message = 0;
     statsBox.innerHTML = message;
 }
 
@@ -71,7 +73,7 @@ function cTurn(u){
     let c = moves[choice];
     if (u == c){
       message = ("We both picked " + u);
-      results.innerHTML = message
+      results.innerHTML = message;
   }
   else findWinner(u,c);
 }
@@ -95,11 +97,13 @@ function findWinner(u,c){
             }
         }
         let message = ("You choose " + u + " and I choose " + c + "<br>"+winner + " win!");
-        results.innerHTML = message
-        score = JSON.parse(jsonScore);
-        let players = [you, Computer]
+        results.innerHTML = message;
+        let score = localStorage.getItem("score");
+        score = JSON.parse(score);
+        let players = ["you", "Computer"];
         score[winner.indexOf(players)]++;
-        let jsonScore = JSON.stringify(score);
+        jsonScore = JSON.stringify(score);
+        score = localStorage.setItem("score",jsonScore);
         localStorage.setItem("round",round);
         localStorage.setItem("winner",winner);
         showRound();   
