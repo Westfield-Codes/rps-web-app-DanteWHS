@@ -12,6 +12,10 @@
       border: 1px solid black; 
       background:white;padding:10px;
     }
+    div.left {
+      position: static;
+      left: 50px;
+    }
       </style>
   </head>
   <body onload = "showRound();">
@@ -19,7 +23,7 @@
     <div id = "scoreBox" class="absolute">score.toString()</div>
     <div id = "statsBox">Loading</div>
     <div id = "results">Choose a move</div>
-    <button onclick="cTurn('r');">Rock</button>
+    <button onclick="cTurn('r');" class="left">Rock</button>
     <button onclick="cTurn('p');">Paper</button>
     <button onclick="cTurn('s');">Scissors</button>
     <script src="script.js"></script>
