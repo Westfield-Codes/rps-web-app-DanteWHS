@@ -44,20 +44,23 @@ function showRound(){
     if (round > rounds) {
         window.location.href = "gameover.html";
     }
+    else {
     let statsBox = document.getElementById("statsBox");
     let scoreBox = document.getElementById("scoreBox");
     let statsMessage = "Round " + round + " of " + rounds;
-    let scoreMessage = score;
+    let scoreMessage = "Score : " + score
     statsBox.innerHTML = statsMessage;
     scoreBox.innerHTML = scoreMessage;
+    }
 }
 
 function showWinner(){
-   let round = localStorage.getItem("round");
-    let rounds = localStorage.getItem("rounds");
-    let statsBox = document.getElementById("statsBox");
-    let message = 0;
-    statsBox.innerHTML = message;
+   let winner = localStorage.getItem("winner");
+   let jsonScore = localStorage.getItem("score");
+   score = JSON.parse(jsonScore)
+    let scoreBox = document.getElementById("scoreBox");
+    let message = score[0] + " to "+ score[1]+ " " + winner + " won";
+    scoreBox.innerHTML = message;
 }
 
 /* Function cpuTurn
@@ -101,7 +104,8 @@ function findWinner(u,c){
         let score = localStorage.getItem("score");
         score = JSON.parse(score);
         let players = ["you", "Computer"];
-        score[winner.indexOf(players)]++;
+        win = players.indexOf(winner);
+        score[win]++;
         jsonScore = JSON.stringify(score);
         score = localStorage.setItem("score",jsonScore);
         localStorage.setItem("round",round);
