@@ -55,11 +55,16 @@ function showRound(){
 }
 
 function showWinner(){
-   let winner = localStorage.getItem("winner");
+    let message = ""
    let jsonScore = localStorage.getItem("score");
    score = JSON.parse(jsonScore)
     let scoreBox = document.getElementById("scoreBox");
-    let message = score[0] + " to "+ score[1]+ " " + winner + " won";
+    if (score[0]>score[1]) {
+        message = score[0] + " to "+ score[1]+ " " + you + " won";
+    }
+    else {
+        message = score[0] + " to "+ score[1]+ " " + computer + " won";
+    }
     scoreBox.innerHTML = message;
 }
 
@@ -99,7 +104,7 @@ function findWinner(u,c){
                 winner= winArray[i][2];
             }
         }
-        let message = ("You choose " + u + " and I choose " + c + "<br>"+winner + " win!");
+        let message = ("You choose " + u + " and I choose " + c + "<br>"+ winner + " win!");
         results.innerHTML = message;
         let score = localStorage.getItem("score");
         score = JSON.parse(score);
@@ -109,7 +114,6 @@ function findWinner(u,c){
         jsonScore = JSON.stringify(score);
         score = localStorage.setItem("score",jsonScore);
         localStorage.setItem("round",round);
-        localStorage.setItem("winner",winner);
         showRound();   
     }
 
