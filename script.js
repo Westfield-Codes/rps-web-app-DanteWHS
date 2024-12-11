@@ -55,10 +55,16 @@ function showRound(){
 }
 
 function showWinner(){
-   let winner = localStorage.getItem("winner");
+    let winner = localStorage.getItem("winner");
    let jsonScore = localStorage.getItem("score");
    score = JSON.parse(jsonScore)
     let scoreBox = document.getElementById("scoreBox");
+    if (score[0]>score[1]) {
+        winner = "you"
+    }
+    else {
+        winner = "computer"
+    }
     let message = score[0] + " to "+ score[1]+ " " + winner + " won";
     scoreBox.innerHTML = message;
 }
