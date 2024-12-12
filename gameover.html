@@ -13,18 +13,18 @@
         text-align: center;
       }
       #again {
-    position: static;
-    left: ;
-    border-radius: 4px;
-    border: medium solid #000000;
-    background-color:rgb(180, 0, 252);
-    font-family: "Arial", Impact, Charcoal, sans-serif;
-    font-weight: bold;
-    font-size:20px;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px black;
-    padding: 5px 30px;
-    margin:8px 70px;
+        display: block;
+        margin:auto;
+        border-radius: 4px;
+        border: medium solid #000000;
+        background-color:rgb(180, 0, 252);
+        font-family: "Arial", Impact, Charcoal, sans-serif;
+        font-weight: bold;
+        font-size:20px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px black;
+        padding: 5px 30px;
+        margin:8px 70px;
       }
         </style>
   </head>
@@ -33,7 +33,7 @@
     <h1>Rock Paper Scissors</h1>
     <div class = "over">Game Over!</div>
     <div id = "scoreBox" class="over">loading</div>
-    <button id = "again" onclick="again()">Play Again?</button>
+    <div class = "over"><button id = "again" onclick="again()">Play Again?</button></div>
     <script src="script.js"></script>
   </body>
 </html>
