@@ -4,34 +4,10 @@
   <head>
     <title>RPS Web App</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-      div.over {
-        font: 24pt;
-        margin:auto;
-        position: static;
-        width: 10cm;
-        text-align: center;
-      }
-      #again {
-        display: block;
-        margin:auto;
-        border-radius: 4px;
-        border: medium solid #000000;
-        background-color:rgb(180, 0, 252);
-        font-family: "Arial", Impact, Charcoal, sans-serif;
-        font-weight: bold;
-        font-size:20px;
-        color: #ffffff;
-        text-shadow: 2px 2px 4px black;
-        padding: 5px 30px;
-        margin:8px 70px;
-        h
-      }
-        </style>
   </head>
   <body onload = "showWinner();"></body>
   <body>
-    <h1>Rock Paper Scissors</h1>
+    <div class= "over"><h1>Rock Paper Scissors</h1></div>
     <div class = "over">Game Over!</div>
     <div id = "scoreBox" class="over">loading</div>
     <div class = "over"><button id = "again" onclick="again()">Play Again?</button></div>

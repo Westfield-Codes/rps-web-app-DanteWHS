@@ -1,5 +1,5 @@
 body {
-  background-color:rgb(70, 133, 250);
+  background:linear-gradient(#4398ff, #1071e5, #0c52a8);
 }
 div.scoreBox {
   position:absolute; 
@@ -7,4 +7,34 @@ div.scoreBox {
   top: 10px; 
   border:1px solid black; 
   background:white;padding:10px;
+}
+div.over {
+  font: 24pt;
+  margin:auto;
+  position: static;
+  width: 8cm;
+  text-align: center;
+}
+div.absolute {
+  position: absolute; 
+  right: 10px; 
+  top: 10px; 
+  border: 1px solid black; 
+  background:white;padding:10px;
+}
+div.left {
+  position: static;
+  left: 50px;
+}
+#again {
+  border-radius: 4px;
+  border: medium solid #000000;
+  background-color:rgb(180, 0, 252);
+  font-family: "Arial", Impact, Charcoal, sans-serif;
+  font-weight: bold;
+  font-size:20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px black;
+  padding: 5px 30px;
+  margin:8px 70px;
 }
