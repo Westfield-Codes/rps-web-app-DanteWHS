@@ -16,7 +16,7 @@ function getRounds(){
  * @return = none
  */ 
 function setRounds(rounds){
-    if (rounds % 2 == 0||isNaN==true) {
+    if (rounds % 2 == 0||isNaN(rounds)==true||rounds<=0) {
         //alert("must be an odd number");
         document.getElementById("rounds").value = "must be an odd number";
     }

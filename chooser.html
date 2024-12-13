@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body onload = "showRound();">
-    <h1>Rochambo</h1>
-    <div id = "scoreBox" class="absolute">score.toString()</div>
-    <div id = "statsBox">Loading</div>
-    <div id = "results">Choose a move</div>
-    <button onclick="cTurn('r');" class="left">Rock</button>
-    <button onclick="cTurn('p');">Paper</button>
-    <button onclick="cTurn('s');">Scissors</button>
+    <h1><div class = "color">Rochambo</div></h1>
+    <div id = "scoreBox" class= "color">score.toString()</div>
+    <div id = "statsBox" class= "color">Loading</div>
+    <div id = "results" class= "color">Choose a move</div>
+    <div class = "over"><button onclick="cTurn('r');" id = "again">Rock</button></div>
+    <div class = "over"><button onclick="cTurn('p');" id = "again">Paper</button></div>
+    <div class = "over"><button onclick="cTurn('s');" id = "again">Scissors</button></div>
     <script src="script.js"></script>
   </body>
 </html>
